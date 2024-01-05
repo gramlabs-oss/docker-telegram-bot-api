@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-# 如果 `LOCAL_API` 为 true，则设置 OPTS 为 "--local"
-if [ "$LOCAL_API" = "true" ]; then
+# 如果 `TELEGRAM_LOCAL_MODE` 为 true，则设置 OPTS 为 "--local"
+if [ "$TELEGRAM_LOCAL_MODE" = "true" ]; then
     OPTS="--local"
 fi
 

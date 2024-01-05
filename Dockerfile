@@ -18,13 +18,18 @@ RUN set -xe \
     openssl-dev \
     gperf \
     linux-headers \
+    binutils \
     && ( cd src \
     && mkdir build \
     && cd build \
     && CC=clang cmake -DCMAKE_BUILD_TYPE=Release .. \
     && cmake --build . --target install -j $(nproc) ) \
+    # strip 新安装的 telegram-bot-api 二进制文件
+    && scanelf --nobanner -E ET_EXEC -BF '%F' --recursive /usr/local | xargs -r strip --strip-all \
+    && scanelf --nobanner -E ET_DYN -BF '%F' --recursive /usr/local | xargs -r strip --strip-unneeded \
     && apk add --virtual .telegram-bot-api-rundeps \
     libstdc++ \
+    && rm -rf src \
     && apk del .fetch-deps .build-deps
 
 EXPOSE 8081

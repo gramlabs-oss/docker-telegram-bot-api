@@ -10,6 +10,7 @@ steps:
       platforms: linux/amd64,linux/arm64/v8
       tags:
         - ade0841
+        - latest
     when:
       branch: main
       event: push
