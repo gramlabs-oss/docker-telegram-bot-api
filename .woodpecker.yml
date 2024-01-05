@@ -1,0 +1,15 @@
+steps:
+  multiarch-build-push:
+    image: woodpeckerci/plugin-docker-buildx
+    settings:
+      repo: gramoss/telegram-bot-api
+      username: gramoss
+      password:
+        from_secret: gramoss_password
+      dockerfile: Dockerfile
+      platforms: linux/amd64,linux/arm64/v8
+      tags:
+        - ade0841
+    when:
+      branch: main
+      event: push
