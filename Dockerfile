@@ -1,4 +1,4 @@
-FROM alpine:3.18
+FROM alpine:3.19
 
 ENV GIT_COMMIT="ade0841d41b7126c2d908475291a5e1cd8a1b905"
 
@@ -27,7 +27,7 @@ RUN set -xe \
     # strip 新安装的 telegram-bot-api 二进制文件
     && scanelf --nobanner -E ET_EXEC -BF '%F' --recursive /usr/local | xargs -r strip --strip-all \
     && scanelf --nobanner -E ET_DYN -BF '%F' --recursive /usr/local | xargs -r strip --strip-unneeded \
-    && apk add --virtual .telegram-bot-api-rundeps \
+    && apk add --no-cache --virtual .telegram-bot-api-rundeps \
     libstdc++ \
     && rm -rf src \
     && apk del .fetch-deps .build-deps

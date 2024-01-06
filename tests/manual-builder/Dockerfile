@@ -1,4 +1,4 @@
-FROM alpine:3.18
+FROM alpine:3.19
 
 ENV GIT_COMMIT="ade0841d41b7126c2d908475291a5e1cd8a1b905"
 
