@@ -7,6 +7,13 @@ fi
 
 ARGS="--api-id $TELEGRAM_API_ID --api-hash $TELEGRAM_API_HASH $OPTS"
 
-echo telegram-bot-api $ARGS
+# 如果外部传入了参数，则将参数追加到 `ARGS` 变量后面
+if [ $# -gt 0 ]; then
+    ARGS="$ARGS $@"
+fi
 
-telegram-bot-api $ARGS
+COMMAND="telegram-bot-api $ARGS"
+
+echo $COMMAND
+
+exec $COMMAND

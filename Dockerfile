@@ -34,4 +34,4 @@ RUN set -xe \
 
 EXPOSE 8081
 
-CMD [ "entrypoint.sh" ]
+ENTRYPOINT [ "entrypoint.sh" ]
