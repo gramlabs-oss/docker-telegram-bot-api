@@ -19,6 +19,4 @@ RUN set -xe \
     && ( cd src \
     && mkdir build \
     && cd build \
-    && CC=clang cmake -DCMAKE_BUILD_TYPE=Release .. \
-    && cmake --build . --target install -j $(nproc) ) \
-    && apk del .fetch-deps .build-deps
+    && CC=clang cmake -DCMAKE_BUILD_TYPE=Release .. )
