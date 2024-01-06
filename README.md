@@ -1,5 +1,7 @@
 # docker-telegram-bot-api
 
+[![status-badge](https://multiarch-ci.hentioe.dev/api/badges/8/status.svg)](https://multiarch-ci.hentioe.dev/repos/8)
+
 Docker image of [telegram-bot-api](https://github.com/tdlib/telegram-bot-api), supports arm64/amd64.
 
 ## Usage
