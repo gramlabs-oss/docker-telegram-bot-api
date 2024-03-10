@@ -1,6 +1,6 @@
 FROM alpine:3.19
 
-ENV GIT_COMMIT="ade0841d41b7126c2d908475291a5e1cd8a1b905"
+ENV GIT_COMMIT="74f7c3a0cdd3cea66eb0e526f4086857dcdb03aa"
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
