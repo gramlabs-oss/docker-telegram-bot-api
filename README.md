@@ -11,7 +11,7 @@ Docker image of [telegram-bot-api](https://github.com/tdlib/telegram-bot-api), s
 ```yaml
 services:
   telegram-bot-api:
-    image: gramoss/telegram-bot-api:ade0841 # Tag hash corresponds to commit
+    image: gramoss/telegram-bot-api:7.2
     environment:
       TELEGRAM_API_ID: <YOUR_TELEGRAM_API_ID>
       TELEGRAM_API_HASH: <YOUR_TELEGRAM_API_HASH>
@@ -19,7 +19,7 @@ services:
 
   your-bot:
     # Your bot service
-    # Use `http://telegram-bot-api:8081` as base url
+    # Use `http://telegram-bot-api` as base url
 ```
 
-The default port is `8081`。
+The default port is `80`, through the built-in Nginx reverse proxy, it also supports accessing `<locale_base_url>/file/bot<token>/<file_path>` to download files!
