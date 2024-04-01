@@ -1,6 +1,8 @@
 FROM alpine:3.19
 
-ENV GIT_COMMIT="74f7c3a0cdd3cea66eb0e526f4086857dcdb03aa"
+ENV GIT_COMMIT="6173126371aa7a8d7cf7974d2b00cde22369e51f"
+
+WORKDIR /data
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
@@ -29,8 +31,15 @@ RUN set -xe \
     && scanelf --nobanner -E ET_DYN -BF '%F' --recursive /usr/local | xargs -r strip --strip-unneeded \
     && apk add --no-cache --virtual .telegram-bot-api-rundeps \
     libstdc++ \
+    nginx \
     && rm -rf src \
     && apk del .fetch-deps .build-deps
+
+COPY bot-api.conf /etc/nginx/http.d/default.conf
+
+RUN set -xe \
+    # 修改 Nginx 执行用户
+    && sed -i 's/user nginx;/user root;/g' /etc/nginx/nginx.conf
 
 EXPOSE 8081
 
