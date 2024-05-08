@@ -9,8 +9,8 @@ steps:
       dockerfile: Dockerfile
       platforms: linux/amd64,linux/arm64/v8
       tags:
-        - 6173126
-        - 7.2
+        - f95d406
+        - 7.3
         - latest
     when:
       branch: main

@@ -11,7 +11,7 @@ Docker image of [telegram-bot-api](https://github.com/tdlib/telegram-bot-api), s
 ```yaml
 services:
   telegram-bot-api:
-    image: gramoss/telegram-bot-api:7.2
+    image: gramoss/telegram-bot-api:7.3
     environment:
       TELEGRAM_API_ID: <YOUR_TELEGRAM_API_ID>
       TELEGRAM_API_HASH: <YOUR_TELEGRAM_API_HASH>
