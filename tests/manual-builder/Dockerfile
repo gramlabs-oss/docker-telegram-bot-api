@@ -1,6 +1,6 @@
-FROM alpine:3.19
+FROM alpine:3.20
 
-ENV GIT_COMMIT="ade0841d41b7126c2d908475291a5e1cd8a1b905"
+ENV GIT_COMMIT="ecfce9042b61bc3719f51014aff238b5ac14a5ad"
 
 RUN set -xe \
     && apk add --no-cache --virtual .fetch-deps \

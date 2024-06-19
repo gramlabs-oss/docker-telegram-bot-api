@@ -1,6 +1,6 @@
-FROM alpine:3.19
+FROM alpine:3.20
 
-ENV GIT_COMMIT="f95d406da67adb8ac13d9c562291aa57c65398e0"
+ENV GIT_COMMIT="ecfce9042b61bc3719f51014aff238b5ac14a5ad"
 
 WORKDIR /data
 
@@ -38,7 +38,7 @@ RUN set -xe \
 COPY bot-api.conf /etc/nginx/http.d/default.conf
 
 RUN set -xe \
-    # 修改 Nginx 执行用户
+    # 修改 Nginx 用户
     && sed -i 's/user nginx;/user root;/g' /etc/nginx/nginx.conf
 
 EXPOSE 8081
