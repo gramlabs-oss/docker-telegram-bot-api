@@ -1,6 +1,6 @@
 # docker-telegram-bot-api
 
-[![status-badge](https://multiarch-ci.hentioe.dev/api/badges/8/status.svg)](https://multiarch-ci.hentioe.dev/repos/8)
+[![status-badge](https://ci.hentioe.dev/api/badges/8/status.svg)](https://multiarch-ci.hentioe.dev/repos/8)
 
 Docker image of [telegram-bot-api](https://github.com/tdlib/telegram-bot-api), supports arm64/amd64.
 
@@ -11,7 +11,7 @@ Docker image of [telegram-bot-api](https://github.com/tdlib/telegram-bot-api), s
 ```yaml
 services:
   telegram-bot-api:
-    image: gramoss/telegram-bot-api:7.5
+    image: gramoss/telegram-bot-api:7.10
     environment:
       TELEGRAM_API_ID: <YOUR_TELEGRAM_API_ID>
       TELEGRAM_API_HASH: <YOUR_TELEGRAM_API_HASH>

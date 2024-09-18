@@ -1,6 +1,8 @@
 steps:
   multiarch-build-push:
-    image: woodpeckerci/plugin-docker-buildx
+    image: reg.hentioe.dev/library/plugin-docker-buildx
+    privileged: true
+    pull: true
     settings:
       repo: gramoss/telegram-bot-api
       username: gramoss
@@ -9,8 +11,8 @@ steps:
       dockerfile: Dockerfile
       platforms: linux/amd64,linux/arm64/v8
       tags:
-        - ecfce90
-        - 7.5
+        - a186a9a
+        - 7.10
         - latest
     when:
       branch: main
