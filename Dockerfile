@@ -1,6 +1,6 @@
-FROM alpine:3.20
+FROM alpine:3.22
 
-ENV GIT_COMMIT="a186a9ae823d91678ace87ef5b920688c555f5b5"
+ENV GIT_COMMIT="2e1fb0330c93a014f723f5b5d8befe9dc9fc1b7d"
 
 WORKDIR /data
 
@@ -26,7 +26,7 @@ RUN set -xe \
     && cd build \
     && CC=clang cmake -DCMAKE_BUILD_TYPE=Release .. \
     && cmake --build . --target install -j $(nproc) ) \
-    # strip 新安装的 telegram-bot-api 二进制文件
+    # strip binaries to reduce image size
     && scanelf --nobanner -E ET_EXEC -BF '%F' --recursive /usr/local | xargs -r strip --strip-all \
     && scanelf --nobanner -E ET_DYN -BF '%F' --recursive /usr/local | xargs -r strip --strip-unneeded \
     && apk add --no-cache --virtual .telegram-bot-api-rundeps \
@@ -38,7 +38,7 @@ RUN set -xe \
 COPY bot-api.conf /etc/nginx/http.d/default.conf
 
 RUN set -xe \
-    # 修改 Nginx 用户
+    # Change Nginx user
     && sed -i 's/user nginx;/user root;/g' /etc/nginx/nginx.conf
 
 EXPOSE 8081
